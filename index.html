@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCDS Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Cardiac Disability Score (CCDS)</h1>
+        <p class="subtitle">Based on Indian Journal of Thoracic and Cardiovascular Surgery, 2020</p>
+    </header>
+
+    <form id="calcForm">
+        <div class="card">
+            <h2>Patient Details</h2>
+            <label for="age">Patient Age (Years)</label>
+            <input type="number" id="age" placeholder="e.g. 12 or 45" required oninput="toggleSubjectiveCriteria()">
+        </div>
+
+        <div class="card">
+            <h2>Step 1: Heart Disease Category (HDC)</h2>
+            <p class="info-text">Reference Tables 5, 6, and 7</p>
+            
+            <label class="radio-option">
+                <input type="radio" name="hdc" value="5" required>
+                <span><strong>Group A:</strong> Mild/No hemodynamic abnormalities (Score: 5)</span>
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="hdc" value="10">
+                <span><strong>Group B:</strong> Moderate abnormalities (Score: 10)</span>
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="hdc" value="20">
+                <span><strong>Group C:</strong> Severe abnormalities/Complex anatomy (Score: 20)</span>
+            </label>
+        </div>
+
+        <div class="card">
+            <h2>Step 2: Subjective Criteria</h2>
+            <div id="subjective-warning" class="warning">Please enter age above to see options.</div>
+
+            <div id="ross-criteria" class="hidden">
+                <p class="badge">Using Ross Grading (< 14 Years)</p>
+                <label class="radio-option"><input type="radio" name="subjective" value="0"> <span>Asymptomatic (Ross Grade 1), SpO2 >95% (0)</span></label>
+                <label class="radio-option"><input type="radio" name="subjective" value="10"> <span>Symptomatic (Ross Grade 2). Tachypnea (10)</span></label>
+                <label class="radio-option"><input type="radio" name="subjective" value="20"> <span>Symptomatic (Ross Grade 2–3). Diaphoresis/Feeding issues (20)</span></label>
+                <label class="radio-option"><input type="radio" name="subjective" value="30"> <span>Symptomatic (Ross Grade 3). Growth failure, SpO2 <95% (30)</span></label>
+                <label class="radio-option"><input type="radio" name="subjective" value="40"> <span>Symptomatic (Ross Grade 4). Symptoms at rest (40)</span></label>
+            </div>
+
+            <div id="nyha-criteria" class="hidden">
+                <p class="badge">Using NYHA Functional Class (14+ Years)</p>
+                <label class="radio-option"><input type="radio" name="subjective" value="0"> <span>No symptoms (NYHA I). Can exercise ~30 mins (0)</span></label>
+                <label class="radio-option"><input type="radio" name="subjective" value="10"> <span>Symptomatic (NYHA II). Mild dyspnea on exertion (10)</span></label>
+                <label class="radio-option"><input type="radio" name="subjective" value="20"> <span>Symptomatic (NYHA II–III). Symptoms with daily activities (20)</span></label>
+                <label class="radio-option"><input type="radio" name="subjective" value="30"> <span>Symptomatic (NYHA III–IV). Symptoms on light activity (30)</span></label>
+                <label class="radio-option"><input type="radio" name="subjective" value="40"> <span>Symptomatic (NYHA IV). Symptoms at rest (40)</span></label>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Step 3: Objective Criteria</h2>
+            <p class="info-text">Select all that apply (Max Score capped at 40)</p>
+            
+            <label class="checkbox-option">
+                <input type="checkbox" name="obj" value="10">
+                <span>ECG/Echo/MRI showing ischemia, strain, hypertrophy, or arrhythmia</span>
+            </label>
+            <label class="checkbox-option">
+                <input type="checkbox" name="obj" value="10">
+                <span>6-min walk < 400m OR abnormal stress test</span>
+            </label>
+            <label class="checkbox-option">
+                <input type="checkbox" name="obj" value="10">
+                <span>Evidence of heart failure (raised JVP, edema, BNP >140, hypoxia)</span>
+            </label>
+            <label class="checkbox-option">
+                <input type="checkbox" name="obj" value="10">
+                <span>History of palliative surgery, syncope, PPI/ICD, or ionotropic support</span>
+            </label>
+        </div>
+
+        <button type="button" onclick="calculateScore()">Calculate CCDS Score</button>
+    </form>
+
+    <div id="result" class="result-card hidden">
+        <h3>Total CCDS Score</h3>
+        <div class="score-display" id="total-score">0</div>
+        <div class="breakdown">
+            <p><strong>HDC:</strong> <span id="hdc-score">0</span> | <strong>Subjective:</strong> <span id="sub-score">0</span> | <strong>Objective:</strong> <span id="obj-score">0</span></p>
+        </div>
+        <hr>
+        <div class="status-box">
+            <p><strong>Status:</strong> <span id="status-text">-</span></p>
+            <p><strong>Certificate:</strong> <span id="cert-text">-</span></p>
+            <p><strong>Activity:</strong> <span id="activity-text">-</span></p>
+        </div>
+        <p id="disclaimer" class="disclaimer hidden">NOTE: In severe disease that is potentially correctable, a temporary D1 certificate may be issued with reassessment after 12 months.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
