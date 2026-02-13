@@ -1,6 +1,25 @@
-// Function to show the correct Step 2 options based on Age
+// Helper to calculate total years (including fractions for months/days)
+function getAgeInYears() {
+    const years = parseFloat(document.getElementById('age-years').value) || 0;
+    const months = parseFloat(document.getElementById('age-months').value) || 0;
+    const days = parseFloat(document.getElementById('age-days').value) || 0;
+
+    // Check if fields are actually empty strings (to handle "0" vs "empty")
+    const yVal = document.getElementById('age-years').value;
+    const mVal = document.getElementById('age-months').value;
+    const dVal = document.getElementById('age-days').value;
+
+    if (yVal === '' && mVal === '' && dVal === '') {
+        return null; // Return null if user hasn't typed anything
+    }
+
+    // Calculation: 1 year = 12 months, 1 month = 30.43 days approx
+    const totalAge = years + (months / 12) + (days / 365.25);
+    return totalAge;
+}
+
 function toggleSubjectiveCriteria() {
-    const age = parseFloat(document.getElementById('age').value);
+    const age = getAgeInYears();
     const rossDiv = document.getElementById('ross-criteria');
     const nyhaDiv = document.getElementById('nyha-criteria');
     const warning = document.getElementById('subjective-warning');
@@ -13,11 +32,12 @@ function toggleSubjectiveCriteria() {
     // Uncheck previous selections to avoid logic errors
     document.querySelectorAll('input[name="subjective"]').forEach(el => el.checked = false);
 
-    if (isNaN(age)) {
+    if (age === null) {
         warning.classList.remove('hidden');
         return;
     }
 
+    // Use < 14 years logic
     if (age < 14) {
         rossDiv.classList.remove('hidden');
     } else {
