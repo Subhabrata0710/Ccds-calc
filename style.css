@@ -1,5 +1,5 @@
 :root {
-    --primary: #0056b3; /* Medical Blue */
+    --primary: #0056b3; 
     --accent: #e1f5fe;
     --bg: #f4f7f6;
     --card-bg: #ffffff;
@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    max-width: 700px;
+    max-width: 800px; /* Slightly wider for the tables */
     margin: 0 auto;
 }
 
@@ -55,27 +55,28 @@ input[type="number"] {
 .hidden { display: none; }
 .warning { color: #d9534f; font-style: italic; }
 
-/* --- REFERENCE DROPDOWN STYLES --- */
+/* --- DROPDOWN & TABLE STYLES --- */
 details.reference-dropdown {
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #fafafa;
+    margin-bottom: 20px;
+    border: 1px solid #b3d7ff;
+    border-radius: 6px;
+    background: #f8fbff;
 }
 
 details.reference-dropdown summary {
-    padding: 10px;
+    padding: 12px;
     cursor: pointer;
     font-weight: bold;
     color: var(--primary);
-    list-style: none; /* Hide default triangle in some browsers */
+    background: #eef6fc;
+    border-radius: 6px;
+    list-style: none;
 }
 
 details.reference-dropdown summary:hover {
-    background-color: #f0f0f0;
+    background-color: #e3f2fd;
 }
 
-/* Add a custom arrow */
 details.reference-dropdown summary::after {
     content: '+'; 
     float: right;
@@ -86,22 +87,66 @@ details.reference-dropdown[open] summary::after {
     content: '-';
 }
 
+/* Tab Styles for Step 1 */
+.tab-container {
+    padding: 10px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.tab-btn {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: 0.3s;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #666;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover { background-color: #f1f1f1; }
+.tab-btn.active { 
+    color: var(--primary); 
+    border-bottom: 3px solid var(--primary);
+    background: white;
+}
+
+.tab-content {
+    display: none; /* Hidden by default */
+    animation: fadeEffect 0.5s;
+}
+.active-content { display: block; } /* Show active */
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Table Design */
 .table-container {
     padding: 10px;
-    border-top: 1px solid #ddd;
-    overflow-x: auto; /* Handle tables on small screens */
+    overflow-x: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.85em;
+    background: white;
 }
 
 table th, table td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: left;
+    vertical-align: top;
 }
 
 table th {
@@ -109,18 +154,13 @@ table th {
     color: white;
 }
 
-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+table tr:nth-child(even) { background-color: #f9f9f9; }
 
-.small-note {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 5px;
-}
+.small-note { font-size: 0.85em; color: #666; margin: 5px 0 10px; font-style: italic; }
+
 /* -------------------------------- */
 
-button {
+button.calculate-btn, button[type="button"][onclick="calculateScore()"] {
     width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.1em; cursor: pointer; transition: background 0.3s;
 }
 button:hover { background: #004494; }
