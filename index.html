@@ -18,8 +18,21 @@
     <form id="calcForm">
         <div class="card">
             <h2>Patient Details</h2>
-            <label for="age">Patient Age (Years)</label>
-            <input type="number" id="age" placeholder="e.g. 12 or 45" required oninput="toggleSubjectiveCriteria()">
+            <label>Patient Age</label>
+            <div class="age-input-group">
+                <div class="input-wrapper">
+                    <input type="number" id="age-years" placeholder="0" min="0" oninput="toggleSubjectiveCriteria()">
+                    <span>Years</span>
+                </div>
+                <div class="input-wrapper">
+                    <input type="number" id="age-months" placeholder="0" min="0" max="11" oninput="toggleSubjectiveCriteria()">
+                    <span>Months</span>
+                </div>
+                <div class="input-wrapper">
+                    <input type="number" id="age-days" placeholder="0" min="0" max="31" oninput="toggleSubjectiveCriteria()">
+                    <span>Days</span>
+                </div>
+            </div>
         </div>
 
         <div class="card">
@@ -41,11 +54,11 @@
                         <p class="small-note">Mild/No hemodynamic abnormalities. Expected CCDS < 40.</p>
                         <table>
                             <tr><th>Category</th><th>Criteria</th></tr>
-                            <tr><td><strong>Unoperated (A1)</strong></td><td>PFO/small ASD < 6mm, Small fenestrations, Bilateral SVC, Isolated IVC interruption.<br>Partial anomalous pulmonary venous drainage (single vein) without PAH.<br>Ebstein’s Grade I/II (mild TR). Cleft MV (mild).<br>Bicuspid AV (mild regurg, gradient < 20mmHg).<br>Small VSD (no PAH/chamber enlargement). Tiny PDA (silent).<br>Mild Coarctation (gradient < 20mmHg).</td></tr>
-                            <tr><td><strong>Post-Corrective Surgery (A2)</strong></td><td>Acyanotic HD post-intervention with no residual dysfunction.<br>TOF repair (no TAP) with no residual lesions.<br>Post Pulmonary Valvotomy (gradient < 30mmHg).<br>MV repair (mild MR). TAPVC repair (no PAH).<br>ALCAPA repair (no dysfunction).</td></tr>
-                            <tr><td><strong>Post-Palliative (A3)</strong></td><td>Viral myocarditis (recovered). Cardiac tumor (regressed).<br>Mild HCM (no gradient/syncope).<br>VSD closed spontaneously or post-PA band (normal pressure).<br>RHD (mild regurgitation on prophylaxis).<br>Kawasaki (coronary dilation reverted).<br>Valvar PS (< 30mmHg). AS (< 20mmHg). MS (mean < 5mmHg).</td></tr>
-                            <tr><td><strong>Hypertension (A4)</strong></td><td>Primary/Residual PAH (Mean PAP < 30mmHg).<br>Borderline/Mild systemic HTN (controlled).</td></tr>
-                            <tr><td><strong>Arrhythmia (A5)</strong></td><td>Cured by RF ablation. WPW pattern on ECG without SVT.</td></tr>
+                            [cite_start]<tr><td><strong>Unoperated (A1)</strong></td><td>PFO/small ASD < 6mm, Small fenestrations, Bilateral SVC, Isolated IVC interruption [cite: 2][cite_start].<br>Partial anomalous pulmonary venous drainage (single vein) without PAH[cite: 2].<br>Ebstein’s Grade I/II (mild TR). [cite_start]Cleft MV (mild) [cite: 2][cite_start].<br>Bicuspid AV (mild regurg, gradient < 20mmHg)[cite: 2].<br>Small VSD (no PAH/chamber enlargement). [cite_start]Tiny PDA (silent) [cite: 2][cite_start].<br>Mild Coarctation (gradient < 20mmHg)[cite: 2].</td></tr>
+                            [cite_start]<tr><td><strong>Post-Corrective Surgery (A2)</strong></td><td>Acyanotic HD post-intervention with no residual dysfunction [cite: 2][cite_start].<br>TOF repair (no TAP) with no residual lesions [cite: 2][cite_start].<br>Post Pulmonary Valvotomy (gradient < 30mmHg)[cite: 2].<br>MV repair (mild MR). [cite_start]TAPVC repair (no PAH) [cite: 2][cite_start].<br>ALCAPA repair (no dysfunction)[cite: 2].</td></tr>
+                            <tr><td><strong>Post-Palliative (A3)</strong></td><td>Viral myocarditis (recovered). [cite_start]Cardiac tumor (regressed) [cite: 2][cite_start].<br>Mild HCM (no gradient/syncope) [cite: 2][cite_start].<br>VSD closed spontaneously or post-PA band (normal pressure) [cite: 2][cite_start].<br>RHD (mild regurgitation on prophylaxis) [cite: 2][cite_start].<br>Kawasaki (coronary dilation reverted)[cite: 2].<br>Valvar PS (< 30mmHg). AS (< 20mmHg). [cite_start]MS (mean < 5mmHg)[cite: 2].</td></tr>
+                            [cite_start]<tr><td><strong>Hypertension (A4)</strong></td><td>Primary/Residual PAH (Mean PAP < 30mmHg) [cite: 2][cite_start].<br>Borderline/Mild systemic HTN (controlled)[cite: 2].</td></tr>
+                            <tr><td><strong>Arrhythmia (A5)</strong></td><td>Cured by RF ablation. [cite_start]WPW pattern on ECG without SVT[cite: 2].</td></tr>
                         </table>
                     </div>
 
@@ -54,11 +67,11 @@
                         <p class="small-note">Significant hemodynamic effect. Expected CCDS 40-70.</p>
                         <table>
                             <tr><th>Category</th><th>Criteria</th></tr>
-                            <tr><td><strong>Unoperated (B1)</strong></td><td>Pre-tricuspid: Primum/Sinus Venosus ASD, CS ASD, PAPVC (1-2 veins).<br>Post-tricuspid: VSD (mod PAH, PAP < 2/3 systemic), PDA (continuous murmur, mild-mod PAH).<br>Ebstein’s Grade I/II (mod TR). Corrected TGA (no TR/arrhythmia).<br>Cleft MV (mod gradient/regurg).<br>Bicuspid AV (mod regurg/stenosis < 40mmHg). PS (< 60mmHg).<br>Coarctation (gradient ≤ 20mmHg, diastolic spill).<br>Marfan’s (Aortic root dilated < 40mm).</td></tr>
-                            <tr><td><strong>Post-Corrective Surgery (B2)</strong></td><td>Residual mild-mod lesions (MR/AR/TR/PR) after 12 months.<br>TOF/DORV/TGA repair with mild residual RVOT/LVOT obstruction.<br>Coarctation stenting with mild residual gradient.<br>Bicuspid AV post-balloon (gradient < 40mmHg).</td></tr>
-                            <tr><td><strong>Post-Palliative (B3)</strong></td><td>Glenn Shunt/Fontan (symptomatic > routine activity).<br>PA Banding (SPO2 > 85%).<br>Palliative Switch/Senning.</td></tr>
-                            <tr><td><strong>Hypertension (B4)</strong></td><td>Primary/Residual PAH (Mean PAP < 40mmHg).<br>Systemic HTN with mild end-organ defect.</td></tr>
-                            <tr><td><strong>Arrhythmia (B5)</strong></td><td>Bradycardia (pacemaker or not).<br>Controlled tachyarrhythmia/Long QTc.<br>Complete Heart Block (HR > 70, narrow QRS).</td></tr>
+                            [cite_start]<tr><td><strong>Unoperated (B1)</strong></td><td>Pre-tricuspid: Primum/Sinus Venosus ASD, CS ASD, PAPVC (1-2 veins) [cite: 13][cite_start].<br>Post-tricuspid: VSD (mod PAH, PAP < 2/3 systemic), PDA (continuous murmur, mild-mod PAH)[cite: 13].<br>Ebstein’s Grade I/II (mod TR). [cite_start]Corrected TGA (no TR/arrhythmia) [cite: 13][cite_start].<br>Cleft MV (mod gradient/regurg)[cite: 13].<br>Bicuspid AV (mod regurg/stenosis < 40mmHg). [cite_start]PS (< 60mmHg) [cite: 13][cite_start].<br>Coarctation (gradient ≤ 20mmHg, diastolic spill) [cite: 13][cite_start].<br>Marfan’s (Aortic root dilated < 40mm)[cite: 13].</td></tr>
+                            [cite_start]<tr><td><strong>Post-Corrective Surgery (B2)</strong></td><td>Residual mild-mod lesions (MR/AR/TR/PR) after 12 months [cite: 13][cite_start].<br>TOF/DORV/TGA repair with mild residual RVOT/LVOT obstruction [cite: 13][cite_start].<br>Coarctation stenting with mild residual gradient [cite: 13][cite_start].<br>Bicuspid AV post-balloon (gradient < 40mmHg)[cite: 13].</td></tr>
+                            [cite_start]<tr><td><strong>Post-Palliative (B3)</strong></td><td>Glenn Shunt/Fontan (symptomatic > routine activity) [cite: 13][cite_start].<br>PA Banding (SPO2 > 85%) [cite: 13][cite_start].<br>Palliative Switch/Senning[cite: 13].</td></tr>
+                            [cite_start]<tr><td><strong>Hypertension (B4)</strong></td><td>Primary/Residual PAH (Mean PAP < 40mmHg) [cite: 13][cite_start].<br>Systemic HTN with mild end-organ defect[cite: 13].</td></tr>
+                            [cite_start]<tr><td><strong>Arrhythmia (B5)</strong></td><td>Bradycardia (pacemaker or not) [cite: 13][cite_start].<br>Controlled tachyarrhythmia/Long QTc [cite: 13][cite_start].<br>Complete Heart Block (HR > 70, narrow QRS)[cite: 13].</td></tr>
                         </table>
                     </div>
 
@@ -67,11 +80,11 @@
                         <p class="small-note">Severe abnormalities/Complex anatomy. Expected CCDS > 70.</p>
                         <table>
                             <tr><th>Category</th><th>Criteria</th></tr>
-                            <tr><td><strong>Unoperated (C1)</strong></td><td>Eisenmenger Syndrome (SPO2 < 95%).<br>Large VSD/PDA/AVSD with CHF or PAH.<br>Severe Obstructive Lesions (AS/PS/Coarctation) with dysfunction.<br>Cyanotic CHD (TOF, TGA, Truncus, Tricuspid Atresia, Single Ventricle).<br>Complex Anatomy (Univentricular heart, HLHS, Criss-cross heart).<br>Ebstein’s (Severe TR). HCM (Gradient > 35mmHg/Syncope).<br>Dilated CMP (LVEF < 40%). Restrictive CMP.<br>Symptomatic Constrictive Pericarditis.</td></tr>
-                            <tr><td><strong>Post-Corrective Surgery (C2)</strong></td><td>Significant residual lesions, ventricular dysfunction, or desaturation.<br>Non-resolving PAH.<br>Post-Heart Transplant.<br>Post-CABG with no recovery.</td></tr>
-                            <tr><td><strong>Post-Palliative (C3)</strong></td><td>Fontan/TCPC with complications (PLE, Cirrhosis, SPO2 < 80%).<br>PA Banding (SPO2 < 80%, persistent CHF).<br>Unifocalization of MAPCAs.</td></tr>
-                            <tr><td><strong>Hypertension (C4)</strong></td><td>PAH (Mean PAP ≥ 30mmHg, PVR > 240).<br>Systemic HTN with organ dysfunction/cardiac dysfunction.</td></tr>
-                            <tr><td><strong>Arrhythmia (C5)</strong></td><td>Life-threatening arrhythmia (ICD implanted).<br>Arrhythmogenic RV Dysplasia (ARVD).<br>Intractable Tachyarrhythmia.<br>Complete Heart Block (Wide QRS/Low rate).</td></tr>
+                            [cite_start]<tr><td><strong>Unoperated (C1)</strong></td><td>Eisenmenger Syndrome (SPO2 < 95%) [cite: 4][cite_start].<br>Large VSD/PDA/AVSD with CHF or PAH [cite: 4][cite_start].<br>Severe Obstructive Lesions (AS/PS/Coarctation) with dysfunction [cite: 4][cite_start].<br>Cyanotic CHD (TOF, TGA, Truncus, Tricuspid Atresia, Single Ventricle) [cite: 4][cite_start].<br>Complex Anatomy (Univentricular heart, HLHS, Criss-cross heart)[cite: 4].<br>Ebstein’s (Severe TR). [cite_start]HCM (Gradient > 35mmHg/Syncope)[cite: 4].<br>Dilated CMP (LVEF < 40%). [cite_start]Restrictive CMP [cite: 4][cite_start].<br>Symptomatic Constrictive Pericarditis[cite: 4].</td></tr>
+                            [cite_start]<tr><td><strong>Post-Corrective Surgery (C2)</strong></td><td>Significant residual lesions, ventricular dysfunction, or desaturation [cite: 4][cite_start].<br>Non-resolving PAH [cite: 4][cite_start].<br>Post-Heart Transplant [cite: 4][cite_start].<br>Post-CABG with no recovery[cite: 4].</td></tr>
+                            [cite_start]<tr><td><strong>Post-Palliative (C3)</strong></td><td>Fontan/TCPC with complications (PLE, Cirrhosis, SPO2 < 80%) [cite: 4][cite_start].<br>PA Banding (SPO2 < 80%, persistent CHF) [cite: 4][cite_start].<br>Unifocalization of MAPCAs[cite: 4].</td></tr>
+                            [cite_start]<tr><td><strong>Hypertension (C4)</strong></td><td>PAH (Mean PAP ≥ 30mmHg, PVR > 240) [cite: 4][cite_start].<br>Systemic HTN with organ dysfunction/cardiac dysfunction[cite: 4].</td></tr>
+                            [cite_start]<tr><td><strong>Arrhythmia (C5)</strong></td><td>Life-threatening arrhythmia (ICD implanted) [cite: 4][cite_start].<br>Arrhythmogenic RV Dysplasia (ARVD) [cite: 4][cite_start].<br>Intractable Tachyarrhythmia [cite: 4][cite_start].<br>Complete Heart Block (Wide QRS/Low rate)[cite: 4].</td></tr>
                         </table>
                     </div>
                 </div>
@@ -110,28 +123,28 @@
                         <tbody>
                             <tr>
                                 <td><strong>0</strong></td>
-                                <td><strong>Asymptomatic (Grade 1)</strong><br>SPO2 > 95%.</td>
-                                <td><strong>NYHA I</strong><br>No limitation. Can exercise 30 mins.</td>
+                                [cite_start]<td><strong>Asymptomatic (Grade 1)</strong><br>SPO2 > 95%[cite: 6].</td>
+                                <td><strong>NYHA I</strong><br>No limitation. [cite_start]Can exercise 30 mins[cite: 6].</td>
                             </tr>
                             <tr>
                                 <td><strong>10</strong></td>
-                                <td><strong>Mild Symptoms (Grade 2)</strong><br>Tachypnea only. No feeding issues. SPO2 > 95%.</td>
-                                <td><strong>NYHA II (Mild)</strong><br>Symptoms on moderate exertion (climbing stairs). Comfortable at rest.</td>
+                                <td><strong>Mild Symptoms (Grade 2)</strong><br>Tachypnea only. No feeding issues. [cite_start]SPO2 > 95%[cite: 6].</td>
+                                <td><strong>NYHA II (Mild)</strong><br>Symptoms on moderate exertion (climbing stairs). [cite_start]Comfortable at rest[cite: 6].</td>
                             </tr>
                             <tr>
                                 <td><strong>20</strong></td>
-                                <td><strong>Moderate Symptoms (Grade 2-3)</strong><br>Tachypnea + Diaphoresis. Altered feeding/weight gain. SPO2 > 95%.</td>
-                                <td><strong>NYHA II-III (Moderate)</strong><br>Symptoms on daily activities (walking, housework). Comfortable at rest.</td>
+                                <td><strong>Moderate Symptoms (Grade 2-3)</strong><br>Tachypnea + Diaphoresis. Altered feeding/weight gain. [cite_start]SPO2 > 95%[cite: 6].</td>
+                                <td><strong>NYHA II-III (Moderate)</strong><br>Symptoms on daily activities (walking, housework). [cite_start]Comfortable at rest[cite: 6].</td>
                             </tr>
                             <tr>
                                 <td><strong>30</strong></td>
-                                <td><strong>Severe Symptoms (Grade 3)</strong><br>Growth failure. Marked dyspnea. SPO2 < 95%. History of cyanotic spell.</td>
-                                <td><strong>NYHA III-IV (Severe)</strong><br>Symptoms on light activity. Unable to do clerical work. Home O2 on exertion.</td>
+                                <td><strong>Severe Symptoms (Grade 3)</strong><br>Growth failure. Marked dyspnea. SPO2 < 95%. [cite_start]History of cyanotic spell[cite: 6].</td>
+                                <td><strong>NYHA III-IV (Severe)</strong><br>Symptoms on light activity. Unable to do clerical work. [cite_start]Home O2 on exertion[cite: 6].</td>
                             </tr>
                             <tr>
                                 <td><strong>40</strong></td>
-                                <td><strong>Very Severe (Grade 4)</strong><br>Symptoms at rest (retractions, grunting). Recurrent spells. SPO2 < 90%.</td>
-                                <td><strong>NYHA IV (Very Severe)</strong><br>Symptoms at rest. Unable to move without help. Home O2 at rest.</td>
+                                <td><strong>Very Severe (Grade 4)</strong><br>Symptoms at rest (retractions, grunting). Recurrent spells. [cite_start]SPO2 < 90%[cite: 6].</td>
+                                <td><strong>NYHA IV (Very Severe)</strong><br>Symptoms at rest. Unable to move without help. [cite_start]Home O2 at rest[cite: 6].</td>
                             </tr>
                         </tbody>
                     </table>
@@ -167,19 +180,19 @@
                     <table>
                         <tr>
                             <td><strong>1. Investigations</strong></td>
-                            <td>ECG/Holter/Echo/CT/MRI showing significant ischemia, strain, severe ventricular hypertrophy, rhythm disorders, or channelopathies.<br>Echo showing structural HD with hemodynamic effects (correctible or non-correctible).<br>EF < 40%, TAPSE < expected, Fractional shortening < 30%.</td>
+                            [cite_start]<td>ECG/Holter/Echo/CT/MRI showing significant ischemia, strain, severe ventricular hypertrophy, rhythm disorders, or channelopathies [cite: 8][cite_start].<br>Echo showing structural HD with hemodynamic effects (correctible or non-correctible) [cite: 8][cite_start].<br>EF < 40%, TAPSE < expected, Fractional shortening < 30%[cite: 8].</td>
                         </tr>
                         <tr>
                             <td><strong>2. Functional Capacity</strong></td>
-                            <td>6-minute walk test < 400 meters.<br>Abnormal Exercise Test (MET < 7, VO2 max < 14ml/kg/min).<br>Abnormal stress test (TMT/Thallium).</td>
+                            [cite_start]<td>6-minute walk test < 400 meters [cite: 8][cite_start].<br>Abnormal Exercise Test (MET < 7, VO2 max < 14ml/kg/min) [cite: 8][cite_start].<br>Abnormal stress test (TMT/Thallium)[cite: 8].</td>
                         </tr>
                         <tr>
                             <td><strong>3. Heart Failure Signs</strong></td>
-                            <td>Systemic congestion (Raised JVP, Hepatomegaly, Pedal Edema).<br>Pulmonary congestion (Crepts, Pulmonary Edema).<br>Radiological Cardiomegaly/PVH.<br>BNP > 140 pg/mL or NT-proBNP > 1700 pg/mL.<br>Systemic Hypoxia (Hct > 55%).</td>
+                            [cite_start]<td>Systemic congestion (Raised JVP, Hepatomegaly, Pedal Edema) [cite: 8][cite_start].<br>Pulmonary congestion (Crepts, Pulmonary Edema) [cite: 8][cite_start].<br>Radiological Cardiomegaly/PVH [cite: 8][cite_start].<br>BNP > 140 pg/mL or NT-proBNP > 1700 pg/mL [cite: 8][cite_start].<br>Systemic Hypoxia (Hct > 55%)[cite: 8].</td>
                         </tr>
                         <tr>
                             <td><strong>4. History/Therapy</strong></td>
-                            <td>History of Palliative procedure or Cardiac Syncope.<br>Presence of Pacemaker (PPI) or ICD.<br>Requirement for Inotropes, Pulmonary Vasodilators, or Non-invasive ventilation.</td>
+                            [cite_start]<td>History of Palliative procedure or Cardiac Syncope [cite: 8][cite_start].<br>Presence of Pacemaker (PPI) or ICD [cite: 8][cite_start].<br>Requirement for Inotropes, Pulmonary Vasodilators, or Non-invasive ventilation[cite: 8].</td>
                         </tr>
                     </table>
                 </div>
@@ -218,13 +231,13 @@
             <p><strong>Certificate:</strong> <span id="cert-text">-</span></p>
             <p><strong>Activity:</strong> <span id="activity-text">-</span></p>
         </div>
-        <p id="disclaimer" class="disclaimer hidden">NOTE: In severe disease that is potentially correctable, a temporary D1 certificate may be issued with reassessment after 12 months.</p>
+        <p id="disclaimer" class="disclaimer hidden">NOTE: In severe disease that is potentially correctable, a temporary D1 certificate may be issued with reassessment after 12 months[cite: 10].</p>
     </div>
 </div>
 
 <script src="script.js"></script>
 <script>
-    // Simple Tab Logic for Table 5, 6, 7
+    // Tab Logic for Table 5, 6, 7
     function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tab-content");
