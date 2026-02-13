@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    max-width: 800px; /* Slightly wider for the tables */
+    max-width: 800px; 
     margin: 0 auto;
 }
 
@@ -39,8 +39,22 @@ h1 { color: var(--primary); margin-bottom: 5px; }
 h2 { font-size: 1.2em; margin-top: 0; color: var(--primary); }
 
 label { display: block; margin-bottom: 5px; font-weight: bold; }
-input[type="number"] {
+
+/* AGE INPUTS (3-Column Layout) */
+.age-input-group {
+    display: flex;
+    gap: 15px;
+}
+.input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.input-wrapper input {
     width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;
+}
+.input-wrapper span {
+    font-size: 0.8em; color: #666; margin-top: 4px;
 }
 
 .radio-option, .checkbox-option {
@@ -55,7 +69,7 @@ input[type="number"] {
 .hidden { display: none; }
 .warning { color: #d9534f; font-style: italic; }
 
-/* --- DROPDOWN & TABLE STYLES --- */
+/* DROPDOWN & TABLE STYLES */
 details.reference-dropdown {
     margin-bottom: 20px;
     border: 1px solid #b3d7ff;
@@ -72,102 +86,37 @@ details.reference-dropdown summary {
     border-radius: 6px;
     list-style: none;
 }
+details.reference-dropdown summary:hover { background-color: #e3f2fd; }
+details.reference-dropdown summary::after { content: '+'; float: right; font-weight: bold; }
+details.reference-dropdown[open] summary::after { content: '-'; }
 
-details.reference-dropdown summary:hover {
-    background-color: #e3f2fd;
-}
-
-details.reference-dropdown summary::after {
-    content: '+'; 
-    float: right;
-    font-weight: bold;
-}
-
-details.reference-dropdown[open] summary::after {
-    content: '-';
-}
-
-/* Tab Styles for Step 1 */
-.tab-container {
-    padding: 10px;
-}
-
-.tabs {
-    display: flex;
-    border-bottom: 2px solid #ddd;
-    margin-bottom: 10px;
-}
-
+/* Tab Styles */
+.tab-container { padding: 10px; }
+.tabs { display: flex; border-bottom: 2px solid #ddd; margin-bottom: 10px; }
 .tab-btn {
-    background-color: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    transition: 0.3s;
-    font-size: 0.9em;
-    font-weight: bold;
-    color: #666;
-    border-bottom: 3px solid transparent;
+    background-color: inherit; border: none; outline: none; cursor: pointer; padding: 10px 20px;
+    transition: 0.3s; font-size: 0.9em; font-weight: bold; color: #666; border-bottom: 3px solid transparent;
 }
-
 .tab-btn:hover { background-color: #f1f1f1; }
-.tab-btn.active { 
-    color: var(--primary); 
-    border-bottom: 3px solid var(--primary);
-    background: white;
-}
+.tab-btn.active { color: var(--primary); border-bottom: 3px solid var(--primary); background: white; }
+.tab-content { display: none; animation: fadeEffect 0.5s; }
+.active-content { display: block; }
 
-.tab-content {
-    display: none; /* Hidden by default */
-    animation: fadeEffect 0.5s;
-}
-.active-content { display: block; } /* Show active */
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
+@keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
 
 /* Table Design */
-.table-container {
-    padding: 10px;
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.85em;
-    background: white;
-}
-
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-    vertical-align: top;
-}
-
-table th {
-    background-color: var(--primary);
-    color: white;
-}
-
+.table-container { padding: 10px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85em; background: white; }
+table th, table td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+table th { background-color: var(--primary); color: white; }
 table tr:nth-child(even) { background-color: #f9f9f9; }
-
 .small-note { font-size: 0.85em; color: #666; margin: 5px 0 10px; font-style: italic; }
 
-/* -------------------------------- */
-
-button.calculate-btn, button[type="button"][onclick="calculateScore()"] {
-    width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.1em; cursor: pointer; transition: background 0.3s;
-}
+/* Buttons & Results */
+button { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.1em; cursor: pointer; transition: background 0.3s; }
 button:hover { background: #004494; }
 
-.result-card {
-    background: #28a745; color: white; padding: 25px; border-radius: 8px; margin-top: 20px; text-align: center;
-}
+.result-card { background: #28a745; color: white; padding: 25px; border-radius: 8px; margin-top: 20px; text-align: center; }
 .score-display { font-size: 3em; font-weight: bold; margin: 10px 0; }
 .status-box p { margin: 5px 0; font-size: 1.1em; }
 .disclaimer { background: rgba(0,0,0,0.1); padding: 10px; font-size: 0.9em; margin-top: 15px; border-radius: 4px; }
