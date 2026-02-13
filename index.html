@@ -24,7 +24,39 @@
 
         <div class="card">
             <h2>Step 1: Heart Disease Category (HDC)</h2>
-            <p class="info-text">Reference Tables 5, 6, and 7</p>
+            <p class="info-text">Select the category that best matches the anatomy/defect.</p>
+
+            <details class="reference-dropdown">
+                <summary>View Reference Tables 5, 6, & 7 (HDC Groups)</summary>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Group</th>
+                                <th>Examples</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Group A</strong><br>(Mild)</td>
+                                <td>Small ASD/VSD, Mild PS/AS, Repaired Simple Lesions, MVP without Regurgitation</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Group B</strong><br>(Moderate)</td>
+                                <td>Large VSD/ASD, TOF (Repaired), Coarctation (Repaired), Mod. Valve Disease, Marfan's</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Group C</strong><br>(Severe)</td>
+                                <td>Eisenmenger, Univentricular Heart, Fontan, Complex Cyanotic, Severe Valve Disease, Pulmonary HTN</td>
+                                <td>20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
             
             <label class="radio-option">
                 <input type="radio" name="hdc" value="5" required>
@@ -42,7 +74,50 @@
 
         <div class="card">
             <h2>Step 2: Subjective Criteria</h2>
+            
             <div id="subjective-warning" class="warning">Please enter age above to see options.</div>
+
+            <details class="reference-dropdown">
+                <summary>View Reference Table 2 (Symptoms)</summary>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Score</th>
+                                <th>Ross Class (< 14 yrs)</th>
+                                <th>NYHA Class (≥ 14 yrs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>Asymptomatic</td>
+                                <td>No limitation (Class I)</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Mild Tachypnea</td>
+                                <td>Mild limitation (Class II)</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>Sweating, Feeding difficulty</td>
+                                <td>Marked limitation (Class III)</td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td>Failure to thrive, SpO2 &lt;95%</td>
+                                <td>Severe limitation (Class III-IV)</td>
+                            </tr>
+                            <tr>
+                                <td>40</td>
+                                <td>Symptoms at rest</td>
+                                <td>Symptoms at rest (Class IV)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
 
             <div id="ross-criteria" class="hidden">
                 <p class="badge">Using Ross Grading (< 14 Years)</p>
@@ -66,6 +141,19 @@
         <div class="card">
             <h2>Step 3: Objective Criteria</h2>
             <p class="info-text">Select all that apply (Max Score capped at 40)</p>
+
+             <details class="reference-dropdown">
+                <summary>View Reference Table 3 (Objective Data)</summary>
+                <div class="table-container">
+                    <p class="small-note"><em>Score is additive (10 points per "Yes"), capped at 40 total.</em></p>
+                    <ul>
+                        <li><strong>Investigations:</strong> Ischemia, Strain, Hypertrophy, Arrhythmia on ECG/Holter/Echo.</li>
+                        <li><strong>Functional:</strong> 6MWT < 400m OR Abnormal Stress Test.</li>
+                        <li><strong>Heart Failure:</strong> Raised JVP, Edema, Radiological HF signs, BNP > 140.</li>
+                        <li><strong>History:</strong> Palliative surgery, Syncope, Pacemaker/ICD, Ionotropes.</li>
+                    </ul>
+                </div>
+            </details>
             
             <label class="checkbox-option">
                 <input type="checkbox" name="obj" value="10">
